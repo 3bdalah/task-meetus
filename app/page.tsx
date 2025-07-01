@@ -201,9 +201,7 @@ export default function LoginPage() {
                   alt="Abstract 3D Shape"
                   fill
                   className="object-contain"
-                  loading="eager" // ensure loads earlier for layout stability
-                  quality={75}
-                  priority={true} // this one loads first
+                 // this one loads first
                 />
               </div>
               {/* Logo Overlay Image (absolute positioned with reserved space) */}
@@ -216,7 +214,7 @@ export default function LoginPage() {
                   height="200"
                   className="object-contain"
                   loading="lazy"
-                  quality={75}
+                
                   
                 />
               </div>
