@@ -211,7 +211,7 @@ export default function LoginPage() {
                 className="inline-block absolute bottom-40 left-1/4"
                 // priority
                 alt="Abstract 3D Shape"
-                loading="lazy"
+                // loading="lazy"
                 quality={75}
                 priority={false}
               />
