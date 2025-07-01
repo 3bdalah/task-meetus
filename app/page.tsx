@@ -179,7 +179,6 @@ export default function LoginPage() {
                 <div className="mt-6 text-center text-sm text-gray-600">
                   <p className="inline-block mr-1">Don't have an account ? </p>
                   <Link href="http://localhost:3000/"> Sign Up</Link>
-                  
                 </div>
                 {/* <div className="mt-2 text-center text-sm text-gray-600">
                   
@@ -199,7 +198,10 @@ export default function LoginPage() {
                 width={1000}
                 height={1000}
                 className="w-full h-auto"
-                priority
+                // priority
+                loading="lazy"
+                quality={75}
+                priority={false}
               />
               {/* <h2 className=" inline-block absolute bottom-28 left-1/4 text-6xl"></h2> */}
               <Image
@@ -207,8 +209,11 @@ export default function LoginPage() {
                 width={250}
                 height={200}
                 className="inline-block absolute bottom-40 left-1/4"
-                priority
+                // priority
                 alt="Abstract 3D Shape"
+                loading="lazy"
+                quality={75}
+                priority={false}
               />
             </div>
           </div>
