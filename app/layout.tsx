@@ -1,24 +1,23 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
+import type React from "react";
+import type { Metadata } from "next";
+import "./globals.css";
+import { ABeeZee } from "next/font/google";
+const abeezee = ABeeZee({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "React Assessment - Login Dashboard",
-  description: "React.js Developer Assessment Application",
-    generator: 'v0.dev'
-}
+  title: "MeetUs Ar",
+  // description: "React.js Developer Assessment Application",
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={abeezee.className}>{children}</body>
     </html>
-  )
+  );
 }

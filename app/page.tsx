@@ -21,6 +21,7 @@ import { useAuthStore } from "@/lib/auth-store";
 import { authApi } from "@/lib/api";
 import { validateLoginForm, type ValidationErrors } from "@/lib/validation";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -84,16 +85,16 @@ export default function LoginPage() {
   return (
     <AuthGuard requireAuth={false}>
       <div className="min-h-screen flex items-center justify-center p-4  bg-[radial-gradient(at_top_left,_#e3d9f9,_#fbe5ff,_#c5b1f5,_#B0D2E5)]">
-        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8 items-center bg-transparent">
-
+        <div className="w-full max-w-5xl grid lg:grid-cols-2 gap-8 items-center bg-transparent">
           <div className="flex justify-center bg-transparent">
             <Card className="w-full max-w-md  border-0 bg-transparent ">
               <CardHeader className="space-y-1 text-center">
-                <CardTitle className="text-3xl font-bold text-black">
-                  Welcome Back
+                <CardTitle className="text-[56px] font-light text-black">
+                  Welcome back
                 </CardTitle>
-                <CardDescription className="text-gray-600">
-               Step into our shopping metaverse for an unforgettable shopping experience
+                <CardDescription className="text-gray-600 ]">
+                  Step into our shopping metaverse for an unforgettable shopping
+                  experience
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -105,9 +106,6 @@ export default function LoginPage() {
                   )}
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium">
-                      Email Address
-                    </Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input
@@ -118,7 +116,7 @@ export default function LoginPage() {
                         onChange={(e) =>
                           handleInputChange("email", e.target.value)
                         }
-                        className={`pl-10 ${
+                        className={`pl-10 bg-white bg-opacity-40 ${
                           errors.email ? "border-red-500" : ""
                         }`}
                         disabled={isLoading}
@@ -130,9 +128,6 @@ export default function LoginPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password" className="text-sm font-medium">
-                      Password
-                    </Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input
@@ -143,7 +138,7 @@ export default function LoginPage() {
                         onChange={(e) =>
                           handleInputChange("password", e.target.value)
                         }
-                        className={`pl-10 pr-10 ${
+                        className={`pl-10  bg-white bg-opacity-40 pr-10 ${
                           errors.password ? "border-red-500" : ""
                         }`}
                         disabled={isLoading}
@@ -174,35 +169,47 @@ export default function LoginPage() {
                     {isLoading ? (
                       <div className="flex items-center gap-2">
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        Signing in...
+                        Logging in...
                       </div>
                     ) : (
-                      "Sign In"
+                      "Login"
                     )}
                   </Button>
                 </form>
-
                 <div className="mt-6 text-center text-sm text-gray-600">
-                  <p>Test credentials:</p>
+                  <p className="inline-block mr-1">Don't have an account ? </p>
+                  <Link href="http://localhost:3000/"> Sign Up</Link>
+                  
+                </div>
+                {/* <div className="mt-2 text-center text-sm text-gray-600">
+                  
                   <p className="font-mono text-xs bg-gray-100 p-2 rounded mt-1">
                     dev.aert@gmail.com / helloworld
                   </p>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           </div>
-        
+
           <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-xl">
               <Image
                 src="/images/abstract-shape.png"
                 alt="Abstract 3D Shape"
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
                 className="w-full h-auto"
                 priority
               />
-            <h2 className=" inline-block absolute bottom-28 left-1/4 text-6xl">MeetUS</h2>
+              {/* <h2 className=" inline-block absolute bottom-28 left-1/4 text-6xl"></h2> */}
+              <Image
+                src={"/images/logo2.png"}
+                width={250}
+                height={200}
+                className="inline-block absolute bottom-40 left-1/4"
+                priority
+                alt="Abstract 3D Shape"
+              />
             </div>
           </div>
         </div>
