@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,7 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [apiError, setApiError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showImages, setShowImages] = useState(false);
 
   const { login } = useAuthStore();
   const router = useRouter();
@@ -85,6 +86,8 @@ export default function LoginPage() {
   const [logoLoaded, setLogoLoaded] = useState(false);
 
   const allLoaded = bgLoaded && logoLoaded;
+
+
   return (
     <AuthGuard requireAuth={false}>
       <div className="min-h-screen flex items-center justify-center p-4  bg-[radial-gradient(at_top_left,_#e3d9f9,_#fbe5ff,_#c5b1f5,_#B0D2E5)]">
@@ -196,32 +199,35 @@ export default function LoginPage() {
           <div className="hidden lg:flex justify-center items-center min-h-[600px] relative">
            
 
-            <div className="relative w-full max-w-3xl min-h-[600px]">
-              {/* Background Image */}
-              <div className="absolute inset-0">
-                <Image
-                  src="/images/abstract-shape.png"
-                  alt="Abstract 3D Shape"
-                  fill
-                  className="object-contain"
-                  onLoad={() => setBgLoaded(true)}
-                  priority
-                />
-              </div>
+        
+              <div className="relative w-full max-w-3xl min-h-[600px]">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src="/images/abstract-shape.png"
+                    alt="Abstract 3D Shape"
+                    fill
+                    className="object-contain"
+                    onLoad={() => setBgLoaded(true)}
+                    priority={false}
+                    loading="lazy"
+                  />
+                </div>
 
-              {/* Logo Overlay Image */}
-              <div className="absolute bottom-40 left-1/4">
-                <Image
-                  src="/images/logo2.png"
-                  alt="Logo"
-                  width={250}
-                  height={200}
-                  className="object-contain"
-                  loading="lazy"
-                  onLoad={() => setLogoLoaded(true)}
-                />
+                {/* Logo Overlay Image */}
+                <div className="absolute bottom-40 left-1/4">
+                  <Image
+                    src="/images/logo2.png"
+                    alt="Logo"
+                    width={250}
+                    height={200}
+                    className="object-contain"
+                    loading="lazy"
+                    onLoad={() => setLogoLoaded(true)}
+                  />
+                </div>
               </div>
-            </div>
+           
           </div>
         </div>
       </div>
