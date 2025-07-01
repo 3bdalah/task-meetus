@@ -81,7 +81,10 @@ export default function LoginPage() {
   };
 
   const isFormValid = email && password && !errors.email && !errors.password;
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
+  const allLoaded = bgLoaded && logoLoaded;
   return (
     <AuthGuard requireAuth={false}>
       <div className="min-h-screen flex items-center justify-center p-4  bg-[radial-gradient(at_top_left,_#e3d9f9,_#fbe5ff,_#c5b1f5,_#B0D2E5)]">
@@ -190,32 +193,32 @@ export default function LoginPage() {
             </Card>
           </div>
 
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="hidden lg:flex justify-center items-center min-h-[600px] relative">
+           
+
             <div className="relative w-full max-w-3xl min-h-[600px]">
-              {" "}
-              {/* Reserve space for both images */}
-              {/* Background Shape Image (absolute, fills full space) */}
+              {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
                   src="/images/abstract-shape.png"
                   alt="Abstract 3D Shape"
                   fill
                   className="object-contain"
-                 // this one loads first
+                  onLoad={() => setBgLoaded(true)}
+                  priority
                 />
               </div>
-              {/* Logo Overlay Image (absolute positioned with reserved space) */}
+
+              {/* Logo Overlay Image */}
               <div className="absolute bottom-40 left-1/4">
                 <Image
                   src="/images/logo2.png"
                   alt="Logo"
-                  
-                  width="250"
-                  height="200"
+                  width={250}
+                  height={200}
                   className="object-contain"
                   loading="lazy"
-                
-                  
+                  onLoad={() => setLogoLoaded(true)}
                 />
               </div>
             </div>
