@@ -207,7 +207,7 @@ export default function LoginPage() {
                 />
               </div>
               {/* Logo Overlay Image (absolute positioned with reserved space) */}
-              <div className="absolute bottom-20 left-1/4">
+              <div className="absolute bottom-40 left-1/4">
                 <Image
                   src="/images/logo2.png"
                   alt="Logo"
@@ -215,9 +215,9 @@ export default function LoginPage() {
                   width="250"
                   height="200"
                   className="object-contain"
-                  loading="eager"
+                  loading="lazy"
                   quality={75}
-                  priority={true}
+                  
                 />
               </div>
             </div>
