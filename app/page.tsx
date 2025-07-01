@@ -212,6 +212,8 @@ export default function LoginPage() {
                   src="/images/logo2.png"
                   alt="Logo"
                   fill
+                  width="250"
+                  height="200"
                   className="object-contain"
                   loading="eager"
                   quality={75}
