@@ -201,7 +201,7 @@ export default function LoginPage() {
                 // priority
                 loading="lazy"
                 quality={75}
-                priority={false}
+                // priority={false}
               />
               {/* <h2 className=" inline-block absolute bottom-28 left-1/4 text-6xl"></h2> */}
               <Image
