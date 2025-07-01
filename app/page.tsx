@@ -85,7 +85,7 @@ export default function LoginPage() {
   return (
     <AuthGuard requireAuth={false}>
       <div className="min-h-screen flex items-center justify-center p-4  bg-[radial-gradient(at_top_left,_#e3d9f9,_#fbe5ff,_#c5b1f5,_#B0D2E5)]">
-        <div className="w-full max-w-5xl grid lg:grid-cols-2 gap-8 items-center bg-transparent">
+        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8 items-center bg-transparent">
           <div className="flex justify-center bg-transparent">
             <Card className="w-full max-w-md  border-0 bg-transparent ">
               <CardHeader className="space-y-1 text-center">
@@ -191,30 +191,33 @@ export default function LoginPage() {
           </div>
 
           <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-full max-w-xl">
-              <Image
-                src="/images/abstract-shape.png"
-                alt="Abstract 3D Shape"
-                width={1000}
-                height={1000}
-                className="w-full h-auto"
-                // priority
-                loading="lazy"
-                quality={75}
-                // priority={false}
-              />
-              {/* <h2 className=" inline-block absolute bottom-28 left-1/4 text-6xl"></h2> */}
-              <Image
-                src={"/images/logo2.png"}
-                width={250}
-                height={200}
-                className="inline-block absolute bottom-40 left-1/4"
-                // priority
-                alt="Abstract 3D Shape"
-                // loading="lazy"
-                quality={75}
-                priority={false}
-              />
+            <div className="relative w-full max-w-3xl min-h-[600px]">
+              {" "}
+              {/* Reserve space for both images */}
+              {/* Background Shape Image (absolute, fills full space) */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/abstract-shape.png"
+                  alt="Abstract 3D Shape"
+                  fill
+                  className="object-contain"
+                  loading="eager" // ensure loads earlier for layout stability
+                  quality={75}
+                  priority={true} // this one loads first
+                />
+              </div>
+              {/* Logo Overlay Image (absolute positioned with reserved space) */}
+              <div className="absolute bottom-20 left-1/4 w-[250px] h-[200px]">
+                <Image
+                  src="/images/logo2.png"
+                  alt="Logo"
+                  fill
+                  className="object-contain"
+                  loading="eager"
+                  quality={75}
+                  priority={true}
+                />
+              </div>
             </div>
           </div>
         </div>
