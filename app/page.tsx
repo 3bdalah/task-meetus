@@ -248,13 +248,13 @@ export default function LoginPage() {
             </Card>
           </div>
 
-          <div className="hidden  lg:flex lg:col-span-7 justify-center  w-full bg-black/[0.01] items-center min-h-[600px] relative">
+          <div className="hidden   lg:flex lg:col-span-7 justify-center  w-full bg-black/[0.01] items-center min-h-[600px] relative">
             {/* <div className="absolute top-0 right-0 bottom-0 left-0 bg-black/10"></div> */}
             <div className="relative w-full max-w-5xl min-h-[950px]">
               {/* Background Image */}
-              <div className="flex items-center w-[744px] h-[523px]">
+              <div className="flex items-center w-[844px] h-[623px]">
                  <Image
-                  className="m-auto rotate-[-20]"
+                  className="m-auto "
                   src="/images/abstract-shape2.png"
                   alt="Abstract 3D Shape"
                   width={1630}
@@ -269,7 +269,7 @@ export default function LoginPage() {
               </div>
 
               {/* Logo Overlay Image */}
-              <div className="absolute bottom-80 left-[10]">
+              <div className="absolute bottom-44 left-44 ">
                 <Image
                   src="/images/logo2.png"
                   alt="Logo"
